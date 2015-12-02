@@ -6,9 +6,9 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-@app.route('/pynderbot', methods=['POST'])
+@app.route('/pynderbot', methods=['GET', 'POST'])
 def pynderbot():
-    return render_template("pynderbot.html", userId = request.form['userId'], name = request.form['name'], accessToken = request.form['accessToken'])
+    return render_template("pynderbot.html", userId = request.form['userId'], accessToken = request.form['accessToken'])
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))

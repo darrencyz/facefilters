@@ -26,8 +26,8 @@ function statusChangeCallback(response) {
 // code below.
 function checkLoginState() {
     FB.getLoginStatus(function(response) {
-            statusChangeCallback(response);
-            });
+        statusChangeCallback(response);
+    });
 }
 
 window.fbAsyncInit = function() {
@@ -54,7 +54,6 @@ version    : 'v2.2' // use version 2.2
 FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
         });
-
 };
 
 // Load the SDK asynchronously
@@ -69,10 +68,11 @@ FB.getLoginStatus(function(response) {
 // Here we run a very simple test of the Graph API after login is
 // successful.  See statusChangeCallback() for when this call is made.
 function authenticate(response) {
-    FB.api('/me', function(response) {
-        var url = "http://localhost:5000/pynder_bot"
-        jQuery.post(url, {name: response.name, userId: response.userID, accessToken: response.accessToken })
-    });
+    // FB.api('/me', function(response) {
+        var url = "http://localhost:5000/pynderbot";
+        jQuery.post(url, {userId: response.userID, accessToken: response.accessToken });
+    // });
+
 }
 
 
