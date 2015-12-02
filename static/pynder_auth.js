@@ -70,7 +70,9 @@ FB.getLoginStatus(function(response) {
 function authenticate(response) {
     // FB.api('/me', function(response) {
         var url = "http://localhost:5000/pynderbot";
-        jQuery.post(url, {userId: response.userID, accessToken: response.accessToken });
+        jQuery.post(url, {userId: response.userID, accessToken: response.accessToken }, function(response) {
+            document.write(response);
+        });
     // });
 
 }
