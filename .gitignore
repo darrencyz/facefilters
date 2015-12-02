@@ -1,3 +1,4 @@
 template/*.swp
+pynder/__py__cache/*
 static/*.swp
 *.swp
