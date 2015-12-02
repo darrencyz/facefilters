@@ -9,8 +9,11 @@ def index():
 
 @app.route('/pynderbot', methods=['POST'])
 def pynderbot():
-    return render_template("pynderbot.html")
-    # userId = request.form['userId'], accessToken = request.form['accessToken'])
+	global userId, accessToken
+	userId = request.form['userId']
+	accessToken = request.form['accessToken']
+
+	return render_template("pynderbot.html")
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
